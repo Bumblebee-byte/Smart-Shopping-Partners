@@ -1,41 +1,45 @@
+import React from 'react';
+import Link from 'next/link';
+
 export default function HeroSection() {
     return (
-        <section className="w-full bg-[#111827] text-white pt-24 pb-16 px-8 relative overflow-hidden">
-            <div className="max-w-7xl mx-auto relative z-10">
-                <p className="text-xs tracking-[0.2em] uppercase text-gray-400 mb-6 border-l pl-4 border-gray-500">
+        <section className="relative w-full min-h-[85vh] flex flex-col justify-center border-b border-gray-800">
+
+            {/* --- LAYER 1 & 2: BACKGROUND IMAGE & GRADIENT --- */}
+            <div className="absolute inset-0 z-0">
+                {/* Replace this URL with your actual store/retail image */}
+                <img
+                    src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop"
+                    alt="Premium Retail Store"
+                    className="w-full h-full object-cover"
+                />
+
+                {/* THE MAGIC GRADIENT: Solid dark on left -> semi-transparent middle -> mostly clear right */}
+                {/* If your site background is slightly different, change #0b1120 to #111827 or your exact hex code */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0b1120] via-[#0b1120]/90 to-transparent"></div>
+            </div>
+
+            {/* --- LAYER 3: THE CONTENT --- */}
+            {/* 'relative' and 'z-10' are crucial here so the text doesn't disappear behind the image */}
+            <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-24">
+
+                <p className="text-[10px] uppercase tracking-[0.3em] text-gray-400 mb-6 border-l border-gray-600 pl-4">
                     India's Premier Retail Growth Partner
                 </p>
 
-                <h1 className="text-5xl md:text-8xl font-serif leading-tight mb-10">
-                    Think Beyond.<br />
-                    Metros.<br />
-                    <span className="italic text-gray-300">.</span>
+                <h1 className="text-6xl md:text-8xl font-serif text-white mb-6 max-w-3xl leading-tight">
+                    Think Beyond.<br/>Metros.
                 </h1>
 
-                <button className="bg-white text-black px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-gray-200 transition-colors">
-                    View Portfolio &rarr;
-                </button>
+                <p className="text-gray-400 max-w-xl text-sm leading-relaxed mb-12">
+                    Building curated universes of global prestige. We bridge the gap between premium international brands and India's fastest-growing retail markets.
+                </p>
 
-                {/* Stats Row */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-32 border-t border-gray-800 pt-12">
-                    <div>
-                        <h3 className="text-4xl font-serif mb-2">350+</h3>
-                        <p className="text-[10px] text-gray-400 uppercase tracking-wider">Stores</p>
-                    </div>
-                    <div>
-                        <h3 className="text-4xl font-serif mb-2">28</h3>
-                        <p className="text-[10px] text-gray-400 uppercase tracking-wider">Brand Partners</p>
-                    </div>
-                    <div>
-                        <h3 className="text-4xl font-serif mb-2">42</h3>
-                        <p className="text-[10px] text-gray-400 uppercase tracking-wider">Cities</p>
-                    </div>
-                    <div>
-                        <h3 className="text-4xl font-serif mb-2">18M+</h3>
-                        <p className="text-[10px] text-gray-400 uppercase tracking-wider">Annual Footfalls</p>
-                    </div>
-                </div>
+                <Link href="/portfolio" className="bg-white text-black px-8 py-4 text-xs uppercase tracking-widest font-bold hover:bg-gray-200 transition-colors inline-block">
+                    View Portfolio →
+                </Link>
             </div>
+
         </section>
     );
 }

@@ -1,11 +1,23 @@
-import { type SchemaTypeDefinition } from 'sanity'
-import job from './job'
-import brand from './brand'
-import news from './news'
-import leader from './leader'
-import store from './store'
-import companyStats from './companyStats' // Import the new schema
+import { type SchemaTypeDefinition } from 'sanity';
 
-export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [job, brand, news, leader, store, companyStats], // Add it to the array
-}
+// 1. Import all schema files
+import brand from './brand';
+import companyStats from './companyStats';
+import heroSlideshow from './heroSlideshow';
+import job from './job';
+import leader from './leader';
+import store from './store';
+import news from './news';
+
+// 2. Export the schema object with the 'types' array
+export const schema = {
+  types: [
+    brand,
+    companyStats,
+    heroSlideshow,
+    job,
+    leader,
+    store,
+    news,
+  ],
+};
